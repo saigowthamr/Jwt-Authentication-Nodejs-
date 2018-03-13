@@ -1,0 +1,22 @@
+{
+  "name": "authforsinglepageapps",
+  "version": "1.0.0",
+  "description": "nodejsauth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saigowthamr <saigowthamr@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^5.0.9",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0"
+  }
+}
