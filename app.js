@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require('cors')
 const config = require("./database/config");
 const router = require("./router");
 const app = express();
@@ -25,7 +26,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+//cors
+app.use(cors)
+
+
+
 //Routing config
+
+
 
 router(app);
 
