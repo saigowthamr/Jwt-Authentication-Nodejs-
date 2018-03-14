@@ -1,22 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors = require('cors')
-const config = require("./database/config");
+const cors = require("cors");
 const router = require("./router");
+const config = require("./database/config");
 const app = express();
-
-//ur mongo uri should look like
-//`mongodb://yourusername:password@yoururl.mlab.com:1233/yourdbname`
-
-mongoose
-  .connect(`mongodb://${config.user}:${config.pass}@yoururl:port/yourdbname`)
-  .then(suc => {
-    console.log(" connected to database");
-  })
-  .catch(err => {
-    console.log("Error occured in database");
-  });
 
 //Middlewares
 
@@ -27,13 +15,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //cors
-app.use(cors)
+app.use(cors());
 
 
+//ur mongo uri should look like
+//`mongodb://yourusername:password@yoururl.mlab.com:1233/yourdbname`
+
+mongoose
+  .connect(`mongodb://auth:auth@ds133340.mlab.com:33340/nodeauths`)
+  .then(suc => {
+    console.log(" connected to database");
+  })
+  .catch(err => {
+    console.log("Error occured in database");
+  });
 
 //Routing config
-
-
 
 router(app);
 
