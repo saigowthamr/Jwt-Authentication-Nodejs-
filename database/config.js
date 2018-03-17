@@ -1,4 +1,4 @@
 module.exports={
-      user:'yourusername',
-      pass:'yourpassword'
+      user:'sai',
+      pass:'sai'
 }

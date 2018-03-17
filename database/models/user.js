@@ -10,6 +10,9 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: true,
     min: 4
+  },
+  name:{
+    type:String
   }
 });
 

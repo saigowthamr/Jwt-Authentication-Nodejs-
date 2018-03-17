@@ -10,14 +10,21 @@ function genJwtToken(user) {
   };
   var token = jwt.encode(config, secret); // config and secret
 
-  return token;
+  return {
+   token,
+   name:user.name
+  }
+    ;
 }
 
 module.exports = {
   signup(req, res) {
     const email = req.body.email;
     const password = req.body.password;
-
+    const name = req.body.name
+    if (!email || !password || !name) {
+      return res.status(422).send({ err: "Please provide email and password" });
+    }
     User.findOne({ email: email }, (err, user) => {
       if (err) {
         return res.send("Error occcured");
@@ -28,11 +35,12 @@ module.exports = {
       }
       var user = User({
         email,
-        password
+        password,
+        name
       });
       user.save(function(err, user) {
         if (err) {
-          return res.send(err);
+          return res.status(422).send(err);
         }
         res.send(genJwtToken(user)); //if user successfully signup send jwt token
       });
@@ -41,9 +49,8 @@ module.exports = {
 
   signin(req, res) {
     // passport gives  us back if user found in database
-  if(req.user){
-     return  res.status(200).send(genJwtToken(req.user))
-  }
-
+    if (req.user) {
+      return res.status(200).send(genJwtToken(req.user));
+    }
   }
 };

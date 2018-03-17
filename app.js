@@ -22,7 +22,7 @@ app.use(cors());
 //`mongodb://yourusername:password@yoururl.mlab.com:1233/yourdbname`
 
 mongoose
-  .connect(`mongodb://auth:auth@ds133340.mlab.com:33340/nodeauths`)
+  .connect(``)
   .then(suc => {
     console.log(" connected to database");
   })
