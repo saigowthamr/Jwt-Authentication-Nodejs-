@@ -8,13 +8,13 @@
 # install dependencies
 npm install
 
-# use your database config in
+``` use your database config 
    create your mongo uri in mlabs add it to app.js
    Add password and username in database config directory to use
 
-### Create account using \signup route and get jwt token back
+# Create account using \signup route and get jwt token back
 
-### signin using \signin route and get jwt token back
+# Signin route \signin  and get jwt token back
 
 # To start server
 npm start
